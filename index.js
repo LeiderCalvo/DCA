@@ -1,9 +1,9 @@
 //General topics with objects
-const person = { 
-	name: 'Daniel', 
-	age: 40, 
-	occupation: 'Engineer', 
-	level: 4 
+const person = {
+  name: "Daniel",
+  age: 40,
+  occupation: "Engineer",
+  level: 4,
 };
 
 //Getting an object’s keys
@@ -24,63 +24,62 @@ console.log(Object.entries(person));
 
 //Brackets notation
 let dog = {
-	name: 'Lady',
-	friends: ['Moo','Bowie'],
+  name: "Lady",
+  friends: ["Moo", "Bowie"],
 };
 
-console.log(dog['friends']); //[ 'Moo', 'Bowie' ]
-console.log(dog['friends'][0]); //Moo
+console.log(dog["friends"]); //[ 'Moo', 'Bowie' ]
+console.log(dog["friends"][0]); //Moo
 
 //In operator
 // Objetos personalizados
 var micoche = {
-	marca: "Honda", 
-	modelo: "Accord", 
-	año: 1998
+  marca: "Honda",
+  modelo: "Accord",
+  año: 1998,
 };
-"marca" in micoche  // devuelve true
-"modelo" in micoche // devuelve true
+"marca" in micoche; // devuelve true
+"modelo" in micoche; // devuelve true
 /*------------------------------------------------------------------------------------------------------------------*/
 
 //Reference and copying
-let user = { name: 'John' };
+let user = { name: "John" };
 
 let admin = user;
 
-admin.name = 'Pete'; // changed by the "admin" reference
+admin.name = "Pete"; // changed by the "admin" reference
 
 console.log(user.name); // 'Pete', changes are seen from the "user" reference
 
 let array1 = {};
 let array2 = array1; // copy the reference
 
-console.log( array1 == array2 ); // true, both variables reference the same object
-console.log( array1 === array2 ); // true
-
+console.log(array1 == array2); // true, both variables reference the same object
+console.log(array1 === array2); // true
 
 let a = {};
 let b = {}; // two independent objects
 
-console.log( a == b ); // false
+console.log(a == b); // false
 
 /*------------------------------------------------------------------------------------------------------------------*/
 
 class Person {
-	// el "this" hace referencia a la persona que se está creando en esa clase
-	constructor(name, lastName, age) {
-		this.name = name;
-		this.lastName = lastName;
-		this.age = age;
-	}
+  // el "this" hace referencia a la persona que se está creando en esa clase
+  constructor(name, lastName, age) {
+    this.name = name;
+    this.lastName = lastName;
+    this.age = age;
+  }
 
-	greet() {
-		return "reproduciendo " + this.name;
-	}
+  greet() {
+    return "reproduciendo " + this.name;
+  }
 
-	// esto es un método
-	getFullName() {
-		return this.name + " " + this.lastName;
-	}
+  // esto es un método
+  getFullName() {
+    return this.name + " " + this.lastName;
+  }
 }
 
 const juanito = new Person("juanito", "gomez", 20);
@@ -89,10 +88,10 @@ const julianita = new Person("julianita", "perez", 19);
 console.log(juanito);
 
 const juanito3 = { ...juanito }; // shallow copy
-juanito3.name ="Andrea"  //The changes made in the copied object also reflect the original object.
+juanito3.name = "Andrea"; //The changes made in the copied object also reflect the original object.
 console.log(juanito3);
 const juanito4 = JSON.parse(JSON.stringify(juanito)); // deep copy - be aware of functions not being copied
-juanito4.name= "Andrew";
+juanito4.name = "Andrew";
 console.log(juanito4);
 const juanito5 = Object.assign({}, juanito);
 
@@ -100,39 +99,39 @@ const juanito5 = Object.assign({}, juanito);
 
 // Repaso de POO
 class Tornillo {
-	constructor(tamano) {
-		this.tamano = tamano;
-	}
+  constructor(tamano) {
+    this.tamano = tamano;
+  }
 }
 
 class Motor {
-	constructor(fuerza) {
-		this.caballaje = fuerza;
-		this.tornillos = [];
-		this.tornillos.push(new Tornillo("pequeño"));
-		this.tornillos.push(new Tornillo("mediano"));
-		this.tornillos.push(new Tornillo("grande"));
-	}
+  constructor(fuerza) {
+    this.caballaje = fuerza;
+    this.tornillos = [];
+    this.tornillos.push(new Tornillo("pequeño"));
+    this.tornillos.push(new Tornillo("mediano"));
+    this.tornillos.push(new Tornillo("grande"));
+  }
 }
 
 class Carro {
-	constructor(marca) {
-		this.marca = marca;
-		this.motor = new Motor(200);
+  constructor(marca) {
+    this.marca = marca;
+    this.motor = new Motor(200);
 
-		this.tornillos = [];
-		this.tornillos.push(new Tornillo("grande"));
-		this.tornillos.push(new Tornillo("grande"));
-		this.tornillos.push(new Tornillo("grande"));
-	}
+    this.tornillos = [];
+    this.tornillos.push(new Tornillo("grande"));
+    this.tornillos.push(new Tornillo("grande"));
+    this.tornillos.push(new Tornillo("grande"));
+  }
 
-	acelerar(kmh = 10) {
-		if (kmh > 200) {
-		console.log("acelero demasiado, entonces rompio el motor");
-		} else {
-		console.log(`acelerando un carro de la marca ${this.marca} a ${kmh}km/h`);
-		}
-	}
+  acelerar(kmh = 10) {
+    if (kmh > 200) {
+      console.log("acelero demasiado, entonces rompio el motor");
+    } else {
+      console.log(`acelerando un carro de la marca ${this.marca} a ${kmh}km/h`);
+    }
+  }
 }
 
 const carroDeLucas = new Carro("chevrolet");
@@ -141,20 +140,20 @@ carroDeLucas.acelerar();
 carroDeLucas.acelerar(20);
 carroDeLucas.acelerar(500);
 
-//Inheritance 
+//Inheritance
 
 class Camioneta extends Carro {
-	constructor(marca) {
-		super(marca);
-		this.tieneVolco = true;
-	}
+  constructor(marca) {
+    super(marca);
+    this.tieneVolco = true;
+  }
 
-	acelerar() {
-		console.log("acelerando pero más rápido");
-	}
-	acelerar2() {
-		console.log("acelerando pero más rápido");
-	}
+  acelerar() {
+    console.log("acelerando pero más rápido");
+  }
+  acelerar2() {
+    console.log("acelerando pero más rápido");
+  }
 }
 
 const carroDeLuna = new Camioneta("chevrolet");
@@ -170,8 +169,8 @@ console.log(response);
 
 //template literals
 const persona = {
-	name: "jairo",
-	apellido: "lopez",
+  name: "jairo",
+  apellido: "lopez",
 };
 
 const mensaje = "nombre: " + persona.name + " apellido: " + persona.apellido;
