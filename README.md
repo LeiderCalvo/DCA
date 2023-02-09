@@ -56,16 +56,6 @@ It will ask you a bunch of questions, and then write a package.json for you. It 
 This section defines a list of properties that allow executing commands within the context of your project including: commands from other packages listings as dependencies, custom scripts, bash scripts, etc.
 
 - Start the server
-  - npm start
-- Run custom script
-  - npm run "name of script"
----
-
-## NPM Scripts
-
-This section defines a list of properties that allow executing commands within the context of your project including: commands from other packages listings as dependencies, custom scripts, bash scripts, etc.
-
-- Start the server
   - `npm start`
 - Run custom script
   - `npm run "name of script"`
