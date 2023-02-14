@@ -1,0 +1,24 @@
+{
+  "name": "DCA",
+  "version": "0.0.1",
+  "description": "This is a project that uses some custom modules to create a web page",
+  "main": "index.js",
+  "scripts": {
+    "start": "serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeiderCalvo/DCA.git"
+  },
+  "keywords": [],
+  "author": "DCA",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LeiderCalvo/DCA/issues"
+  },
+  "homepage": "https://github.com/LeiderCalvo/DCA/blob/05_modules/README.md",
+  "dependencies": {},
+  "devDependencies": {
+    "serve": "^14.2.0"
+  }
+}
