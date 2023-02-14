@@ -1,12 +1,6 @@
-const appendSerie = (parent) => (serie) => {
+const appendListItem = (parent) => (data) => {
   const li = document.createElement("li");
-  li.textContent = serie;
-  parent.appendChild(li);
-};
-
-const appendComic = (parent) => (comic) => {
-  const li = document.createElement("li");
-  li.textContent = comic;
+  li.textContent = data;
   parent.appendChild(li);
 };
 
@@ -34,8 +28,8 @@ export const renderCharacter = ({
   h3Comics.textContent = "Comics:";
   h3Series.textContent = "Series:";
 
-  comics.forEach(appendComic(ulComics));
-  series.forEach(appendSerie(ulSeries));
+  comics.forEach(appendListItem(ulComics));
+  series.forEach(appendListItem(ulSeries));
 
   figure.appendChild(img);
   figure.appendChild(h2);
