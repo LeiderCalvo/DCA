@@ -20,6 +20,7 @@ class CustomMessage extends HTMLElement {
 
     render(){
         this.shadowRoot.innerHTML = `
+        <link rel="stylesheet" href="./src/components/customMessage/customMessage.css">
         <p>${this.message || 'Hello, world'}</p>
         `;
     }
