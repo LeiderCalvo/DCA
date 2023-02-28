@@ -81,23 +81,3 @@ So why is TypeScript considered a transpilation and not a compilation? The reaso
 <br />
 
 ---
-
-<br />
-
-### **Design patterns**
-
-Design patterns in JavaScript can help developers write clearer, more modular, and scalable code while also improving development efficiency. By utilizing common design patterns, developers can leverage documented best practices and create tested solutions for common programming problems.
-
-Design patterns can be applied to many aspects of programming in JavaScript, including code structure, data management, and user interface. Some of the most common design patterns in JavaScript include:
-
-- **Module pattern**: This pattern is used to encapsulate related functionality into a single object or module. This helps to avoid global namespace pollution and allows for modular and scalable code creation.
-
-- **Constructor pattern**: This pattern is used to create objects that have properties and methods. A constructor is used to create new object instances, and properties and methods can be defined on the constructor's prototype to be shared by all created instances.
-
-- **Observer pattern**: This pattern is used to allow one object to observe changes in another object and respond accordingly. This is achieved by creating an observer-subject relationship between the objects.
-
-- **Factory pattern**: This pattern is used to create objects in a more flexible and dynamic way. A factory is used to create objects instead of creating them directly, which allows for greater flexibility and customization in object creation.
-
-- **Decorator pattern**: This pattern is used to add functionality to an existing object dynamically. A decorator object is created that wraps the original object and adds additional functionality as needed.
-
-[check more on the documentation](https://refactoring.guru/design-patterns)
