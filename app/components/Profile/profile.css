@@ -1,0 +1,16 @@
+section {
+    margin: 20px 0;
+    border-radius: 20px;
+    border-color: black;
+    background-color: beige;
+    padding: 20px;
+    width: fit-content;
+}
+
+h1 {
+    margin: 0;
+}
+
+p {
+    margin-top: 5px;
+}
