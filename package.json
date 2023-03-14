@@ -1,0 +1,23 @@
+{
+  "name": "dca20231",
+  "version": "1.0.0",
+  "description": "![Asynchronism](https://cdn.buttercms.com/hmirWTF7TBCsX6mncY0P)",
+  "main": "index.js",
+  "scripts": {
+    "start": "serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeiderCalvo/DCA.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LeiderCalvo/DCA/issues"
+  },
+  "homepage": "https://github.com/LeiderCalvo/DCA#readme",
+  "devDependencies": {
+    "serve": "^14.2.0"
+  }
+}
