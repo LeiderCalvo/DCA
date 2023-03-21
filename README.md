@@ -26,6 +26,7 @@ To use TypeScript in a development project, you can follow these steps:
 
     - `npm install typescript -g`
     - `npm install typescript ts-loader --D`
+    - `npm install webpack webpack-cli --save-dev`
 
 <br>
 
