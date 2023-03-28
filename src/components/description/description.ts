@@ -1,3 +1,5 @@
+import { addNewTrip } from '../../store/actions';
+import { dispatch } from '../../store/index';
 import { loadCss } from '../../utils/styles';
 import styles from './styles.css';
 
@@ -37,6 +39,18 @@ export default class Description extends HTMLElement {
         this.shadowRoot?.appendChild(text);
         
         const button = this.ownerDocument.createElement('button');
+        button.addEventListener('click', () => {
+            dispatch(
+                addNewTrip({
+                    payload: {
+                        caption: "nuevo",
+                        url: "",
+                        text: "oeijfoiwjefoiwjefoiwjefoiwe",
+                        btn_text: "wfeoifwjefowiejfowejfoiwe"
+                    }
+                })
+            )
+        })
         button.innerText = this.btn_text;
         this.shadowRoot?.appendChild(button);
     }
