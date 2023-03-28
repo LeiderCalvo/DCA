@@ -5,23 +5,24 @@ import { FigureProps } from '../components/figure/figure';
 import { CardProps } from '../components/card/card';
 import { setAttributes } from '../utils/attributes'
 import TripsService from '../services/trips'
-import { Trip } from '../types/trips';
 import { loadCss } from '../utils/styles';
+import { getTrips } from '../store/actions';
+import { addObserver, appState, dispatch } from '../store/index';
 
 class Dashboard extends HTMLElement {
-    trips: Trip[] = [];
-
     constructor(){
         super();
         this.attachShadow({mode: "open"})
+        addObserver(this)
     }
 
     async connectedCallback() {
-        this.trips = await TripsService.get();
-        this.render()
+        const action = await getTrips();
+        dispatch(action)
     }
 
     render() {
+        if(this.shadowRoot) this.shadowRoot.innerHTML = ''
         loadCss(this, styles)
 
         const mainContent = this.ownerDocument.createElement('section');
@@ -30,8 +31,7 @@ class Dashboard extends HTMLElement {
         const aside = this.ownerDocument.createElement('aside');
         this.shadowRoot?.appendChild(aside);
 
-
-        this.trips.forEach((trip, i) => {
+        appState.trips.forEach((trip, i) => {
             const card = this.ownerDocument.createElement('app-card');
             setAttributes<CardProps>({
                 ...trip,
