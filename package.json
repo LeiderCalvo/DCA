@@ -1,7 +1,7 @@
 {
-  "name": "dca_template",
+  "name": "dca_scoffolding",
   "version": "1.0.0",
-  "description": "nested components load css css custom element",
+  "description": "this is a base project",
   "main": "index.js",
   "scripts": {
     "start": "serve",
