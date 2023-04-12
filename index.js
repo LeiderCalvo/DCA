@@ -9,8 +9,6 @@ if (Storage === undefined) {
 
 
 
-
-
 /** Session Storage */
 const token = "53gf8d0b-6b80-4e49-v60d-5b3ca2ce6678";
 
@@ -24,8 +22,6 @@ console.log(sessionStorage.getItem("token"));
  * setTimeout(() => sessionStorage.removeItem("token"), 3000);
  * setTimeout(() => sessionStorage.clear(), 9000);
  */
-
-
 
 
 
@@ -56,8 +52,8 @@ const shoppingCart = {
   ],
 };
 
-localStorage.setItem(key, JSON.stringify(shoppingCar));
-console.log(localStorage.getItem(key));
+localStorage.setItem(key, JSON.stringify(shoppingCart));
+console.log(JSON.parse(localStorage.getItem(key)));
 
 // before moving forward, comment the line that set the key, close the browser tab and open it again to see it remains
 
@@ -66,6 +62,16 @@ console.log(localStorage.getItem(key));
  * setTimeout(() => localStorage.removeItem(key), 3000);
  * setTimeout(() => localStorage.clear(), 9000);
  */
+
+
+
+/** Cookies */
+const expirationDate = new Date(2023, 6, 1);
+const cookieKey = "isAlive";
+const cookieValue = true;
+document.cookie = `${cookieKey}=${cookieValue}; expires=${expirationDate.toUTCString()}`;
+//document.cookie = "isAlive=true; expires=2023-07-01T05:00:00.000Z";
+console.log(document.cookie);
 
 
 
