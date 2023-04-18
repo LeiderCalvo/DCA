@@ -1,4 +1,3 @@
-import "./screens/dashboard"
 import "./components/export"
 
 class AppContainer extends HTMLElement {
@@ -12,8 +11,11 @@ class AppContainer extends HTMLElement {
     }
 
     render() {
-        const dashboard = this.ownerDocument.createElement('app-dashboard');
-        this.shadowRoot?.appendChild(dashboard);
+        const header = this.ownerDocument.createElement('app-header');
+        const suggesiton = this.ownerDocument.createElement('app-suggestion');
+        
+        this.shadowRoot?.appendChild(header);
+        this.shadowRoot?.appendChild(suggesiton);
     }
 }
 
