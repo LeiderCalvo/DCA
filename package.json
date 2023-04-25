@@ -1,0 +1,31 @@
+{
+	"name": "dca",
+	"version": "1.0.0",
+	"description": "# Databases / Firebase 🧑‍💻",
+	"main": "index.js",
+	"scripts": {
+		"start": "serve",
+		"build": "webpack --watch --mode=production"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/LeiderCalvo/DCA.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/LeiderCalvo/DCA/issues"
+	},
+	"homepage": "https://github.com/LeiderCalvo/DCA#readme",
+	"dependencies": {
+		"firebase": "^9.20.0"
+	},
+	"devDependencies": {
+		"serve": "^14.2.0",
+		"ts-loader": "^9.4.2",
+		"typescript": "^5.0.4",
+		"webpack": "^5.80.0",
+		"webpack-cli": "^5.0.2"
+	}
+}
