@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore, doc, getDocs, collection, setDoc } from 'firebase/firestore/lite';
+import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword, onAuthStateChanged, sendPasswordResetEmail} from "firebase/auth";
 
 const firebaseConfig = {
 	apiKey: 'AIzaSyD-HYIh8x0onCBChk1wlSDlWIeSUdaFXNM',
@@ -12,22 +12,57 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+const auth = getAuth(app);
 
-const citiesRef = collection(db, 'test');
-setDoc(doc(citiesRef, 'SF'), {
-	name: 'San Francisco',
-	state: 'CA',
-	country: 'USA',
-	capital: false,
-	population: 860000,
-	regions: ['west_coast', 'norcal'],
+//Register new user
+createUserWithEmailAndPassword(auth, 'juanez1999@gmail.com', '1234567')
+.then((userCredential:any) => {
+	// Signed in
+	const user = userCredential.user;
+	console.log(user);
+	// ...
+})
+.catch((error:any) => {
+	const errorCode = error.code;
+	const errorMessage = error.message;
+	console.log(errorMessage);
+	// ..
 });
 
-const docRef = collection(db, 'test');
-const querySnapshot = await getDocs(docRef);
+//Login user
+signInWithEmailAndPassword(auth, 'juanez1999@gmail.com', '1234567')
+.then((userCredential:any) => {
+	// Signed in
+	const user2 = userCredential.user;
+	console.log(user2);
+	// ...
+})
+.catch((error:any) => {
+	const errorCode = error.code;
+	const errorMessage = error.message;
+});
 
-querySnapshot.forEach((doc) => {
-	// doc.data() is never undefined for query doc snapshots
-	console.log(doc.id, ' => ', doc.data());
+// sendPasswordResetEmail(auth, 'juanez1999@gmail.com')
+//   .then(() => {
+//     // Password reset email sent!
+//     // ..
+//   })
+//   .catch((error:any) => {
+//     const errorCode = error.code;
+//     const errorMessage = error.message;
+//     // ..
+//   });
+
+//Information about the user who accessed
+onAuthStateChanged(auth, (user:any) => {
+	if (user) {
+		// User is signed in, see docs for a list of available properties
+		// https://firebase.google.com/docs/reference/js/firebase.User
+		const uid = user.uid;
+		console.log(uid);
+		// ...
+	} else {
+		// User is signed out
+		// ...
+	}
 });

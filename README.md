@@ -1,36 +1,16 @@
-###### Class 18
+###### Class 20
 
-# Databases / Firebase 🧑‍💻
+# Auth / Firebase 🧑‍💻
 
-![Databases](https://www.aceinfoway.com/blog/wp-content/uploads/2020/03/Best-Database-to-work-with-in-2020.jpg)
+![Auth](https://www.cloudflare.com/resources/images/slt3lc6tev37/iVLWiZgkpEMOKgvZ9ukUg/5b30ca255ae5b7dafdf586a77cdbfe81/what_is_authentication_password_example.png)
 
-**What is a Database?**
+**What is Authentication?**
 
-A database is an organized and structured set of information stored in a computer system that can be queried and updated by multiple users simultaneously. Databases are essential for the efficient storage and management of large amounts of information.
+In cyber security, authentication is the process of verifying someone's or something's identity. Authentication usually takes place by checking a password, a hardware token, or some other piece of information that proves identity. Just as an airline worker checks a passport or an identification card to verify a person's identity when they board a plane, computer systems need to be sure a person really is who they say they are. At an airport, this authentication process ensures only people with a ticket get on the plane; for digital systems, this ensures data is viewed and used by the right people.
 
-[check more on the documentation](https://developer.mozilla.org/en-US/docs/Glossary/Database)
+Authentication does not just apply to verifying human users. Computer systems also need to check servers, software, APIs, and other computers to be sure they are who they "say" they are.
 
-<br />
-
----
-
-<br />
-
-### **Types of Databases**
-
-![Types of Databases](https://www.acte.in/wp-content/uploads/2020/08/noSql.png)
-
-There are several types of databases, some of the most common ones are:
-
-- Relational databases: these databases store information in tables that are interrelated with each other through keys or common fields. This type of database is widely used in companies and organizations to manage customer, supplier, inventory, and other types of information.
-
-- NoSQL databases: these databases use data models that are different from the relational model. Instead of tables, they use data models such as documents, graphs, key-value, among others. This type of database is used for web and mobile applications that require high scalability and availability.
-
-- Search databases: these databases are used to search for specific information within a data set, such as web search. These databases use search algorithms to find relevant information.
-
-- In-memory databases: these databases store information in RAM instead of the hard drive, allowing for much faster access to data. This type of database is used in applications that require fast access to information, such as online games and real-time data analysis applications.
-
-[check more on the documentation](https://www.geeksforgeeks.org/types-of-databases/)
+[check more on the documentation](https://www.cloudflare.com/learning/access-management/what-is-authentication/)
 
 <br />
 
@@ -38,19 +18,47 @@ There are several types of databases, some of the most common ones are:
 
 <br />
 
-### **What is Firebase?**
+### **TWhat is the difference between authentication and authorization?**
 
-![Firebase](https://media.geeksforgeeks.org/wp-content/cdn-uploads/20201125145805/Firebase-2-1.png)
+![difference](https://www.ssl2buy.com/wp-content/uploads/2019/04/authentication-vs-authorization.jpg)
 
-Firebase is a mobile and web application development platform that offers a variety of cloud-based services, including real-time database, authentication, storage, hosting, messaging, and analytics. It provides developers with easy-to-integrate tools that are highly scalable and secure. The real-time database is one of its most popular services, allowing developers to store and sync data in real-time between clients. Firebase is a powerful platform that helps developers build and scale their apps.
+While authentication is concerned with verifying identity, authorization is concerned with permissions, or what someone is allowed to do once they gain access to a protected system or resource.
 
-To install the Firebase modules it is necessary that our webpack config have the following property to be able to use the await in our code when making the requests.
+Suppose Bob works in his company's marketing department. Bob enters his password, scans his face, and inserts his hard token to log in to his company's network. At this point, authentication is complete.
 
-- `experiments: {
-topLevelAwait: true
-},`
+After logging in, Bob does not have access to every data file in the company's possession. Authorization determines what Bob can and cannot see. As a marketer, he is authorized to see some data, like a list of potential customers to whom the company will send marketing messages, but not other data, like the company's main codebase or its list of employee salaries.
 
-[check more on the documentation](https://firebase.google.com/docs?hl=es-419)
+[check more on the documentation](https://www.cloudflare.com/learning/access-management/what-is-authentication/)
+
+<br />
+
+---
+
+<br />
+
+### **What is two-factor authentication (2FA)?**
+
+![two-factor](https://www.malwarebytes.com/blog/images/uploads/2018/09/shutterstock_641960737.jpg)
+
+Two-factor authentication (2FA) is what MFA is called when exactly two factors are used. The most common type of two-factor authentication is "something you know" + "something you have." For instance, in addition to entering their passwords, many people have codes sent to their phones before they can access their bank accounts (an example of the "soft token" version of this factor).
+
+Today, many businesses are employing 2FA in order to reduce the impact of phishing attacks. For example, Google was able to eliminate account takeover attacks by using 2FA with hard tokens for authentication.
+
+[check more on the documentation](https://www.cloudflare.com/learning/access-management/what-is-authentication/)
+
+<br />
+
+---
+
+### **Firebase Auth?**
+
+![FirebaseAuth](https://firebase.google.com/static/images/products/auth/auth-3.png?hl=es-419)
+
+Firebase Authentication provides backend services, easy-to-use SDKs, and ready-made UI libraries to authenticate users to your app. It supports authentication using passwords, phone numbers, popular federated identity providers like Google, Facebook and Twitter, and more.
+
+Firebase Authentication integrates tightly with other Firebase services, and it leverages industry standards like OAuth 2.0 and OpenID Connect, so it can be easily integrated with your custom backend.
+
+[check more on the documentation](https://firebase.google.com/docs/auth)
 
 <br />
 
