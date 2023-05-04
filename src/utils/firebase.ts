@@ -2,11 +2,67 @@ import firebaseConfig from "../firebaseConfig";
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
 import { Product } from "../types/products";
+import {
+  createUserWithEmailAndPassword,
+  getAuth,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 
 const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+
+const registerUser = async ({
+  email,
+  password,
+}: {
+  email: string;
+  password: string;
+}): Promise<boolean> => {
+  try {
+    const userCredential = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+    console.log(userCredential.user);
+    return true;
+  } catch (error: any) {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.log(errorCode, errorMessage);
+    return false;
+  }
+};
+
+const loginUser = async ({
+  email,
+  password,
+}: {
+  email: string;
+  password: string;
+}): Promise<boolean> => {
+  try {
+    const userCredential = await signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+    console.log(userCredential.user);
+    alert("welcome " + userCredential.user.email);
+    return true;
+  } catch (error: any) {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.log(errorCode, errorMessage);
+    return false;
+  }
+};
+
+/////////////////////// DB
 const db = getFirestore(app);
 
-export const addProduct = async (product: Omit<Product, "id">) => {
+const addProduct = async (product: Omit<Product, "id">) => {
   try {
     const where = collection(db, "products");
     await addDoc(where, product);
@@ -31,8 +87,6 @@ const getProducts = async () => {
 export default {
   addProduct,
   getProducts,
+  registerUser,
+  loginUser,
 };
-
-// querySnapshot.forEach((doc) => {
-//   console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
-// });
