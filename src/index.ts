@@ -45,23 +45,44 @@ class AppContainer extends HTMLElement {
     pPrice.addEventListener("change", this.changePrice);
     this.shadowRoot?.appendChild(pPrice);
 
+    const iImg = this.ownerDocument.createElement("input");
+    iImg.type = "file";
+    iImg.addEventListener("change", (e) => {
+      console.log(e.target.files[0]);
+      Firebase.uploadFile(e.target.files[0]);
+      // const file = iImg.files[0];
+      // var reader = new FileReader();
+      // reader.onload = (e: any) => {
+      //   const fil = e.target.result;
+      //   Firebase.uploadFile(fil);
+      // };
+      // reader.readAsDataURL(file);
+    });
+    this.shadowRoot?.appendChild(iImg);
+
     const save = this.ownerDocument.createElement("button");
     save.innerText = "Guardar";
     save.addEventListener("click", this.submitForm);
     this.shadowRoot?.appendChild(save);
+    const productsList = this.ownerDocument.createElement("section");
+    this.shadowRoot?.appendChild(productsList);
 
-    const products = await Firebase.getProducts();
-    products.forEach((p: Product) => {
-      const container = this.ownerDocument.createElement("section");
-      const name = this.ownerDocument.createElement("h3");
-      name.innerText = p.name;
-      container.appendChild(name);
+    Firebase.getProductsListener((products) => {
+      productsList.innerHTML = "";
 
-      const price = this.ownerDocument.createElement("h3");
-      price.innerText = String(p.price);
-      container.appendChild(price);
+      products.forEach((p: Product) => {
+        const container = this.ownerDocument.createElement("section");
+        container.setAttribute("data-pid", p.id);
+        const name = this.ownerDocument.createElement("h3");
+        name.innerText = p.name;
+        container.appendChild(name);
 
-      this.shadowRoot?.appendChild(container);
+        const price = this.ownerDocument.createElement("h3");
+        price.innerText = String(p.price);
+        container.appendChild(price);
+
+        productsList.appendChild(container);
+      });
     });
   }
 }
