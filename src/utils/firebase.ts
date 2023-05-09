@@ -15,10 +15,10 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const storage = getStorage(app);
 
-const uploadFile = async (file: string) => {
-  const storageRef = ref(storage, "imgs/cat.jpg");
-  const res = await uploadString(storageRef, file);
-  console.log("Uploaded a blob or file!", res);
+const uploadFile = async (file: File) => {
+  const storageRef = ref(storage, file.name);
+  const res = await uploadBytes(storageRef, file);
+  console.log("file uploaded", res);
 };
 
 export const addProduct = async (product: Omit<Product, "id">) => {

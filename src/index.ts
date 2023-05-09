@@ -47,9 +47,11 @@ class AppContainer extends HTMLElement {
 
     const iImg = this.ownerDocument.createElement("input");
     iImg.type = "file";
-    iImg.addEventListener("change", (e) => {
-      console.log(e.target.files[0]);
-      Firebase.uploadFile(e.target.files[0]);
+    iImg.addEventListener("change", () => {
+      const file = iImg.files?.[0];
+      console.log(file);
+
+      if (file) Firebase.uploadFile(file);
       // const file = iImg.files[0];
       // var reader = new FileReader();
       // reader.onload = (e: any) => {
