@@ -61,7 +61,3 @@ export default {
   getProductsListener,
   uploadFile,
 };
-
-// querySnapshot.forEach((doc) => {
-//   console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
-// });

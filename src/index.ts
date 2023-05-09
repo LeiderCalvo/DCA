@@ -61,9 +61,15 @@ class AppContainer extends HTMLElement {
     this.shadowRoot?.appendChild(productsList);
 
     Firebase.getProductsListener((products) => {
-      productsList.innerHTML = "";
+      // productsList.innerHTML = "";
+      const oldOnesIds: String[] = [];
+      productsList.childNodes.forEach((i) => {
+        if (i instanceof HTMLElement) oldOnesIds.push(i.dataset.pid || "");
+      });
+      const newOnes = products.filter((prod) => !oldOnesIds.includes(prod.id));
+      console.log(newOnes);
 
-      products.forEach((p: Product) => {
+      newOnes.forEach((p: Product) => {
         const container = this.ownerDocument.createElement("section");
         container.setAttribute("data-pid", p.id);
         const name = this.ownerDocument.createElement("h3");
@@ -74,7 +80,7 @@ class AppContainer extends HTMLElement {
         price.innerText = String(p.price);
         container.appendChild(price);
 
-        productsList.appendChild(container);
+        productsList.prepend(container);
       });
     });
   }
