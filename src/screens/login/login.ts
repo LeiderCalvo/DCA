@@ -5,7 +5,7 @@ import Firebase from "../../utils/firebase";
 
 const credentials = { email: "", password: "" };
 
-class Login extends HTMLElement {
+export default class Login extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
@@ -16,13 +16,7 @@ class Login extends HTMLElement {
   }
 
   async handleLoginButton() {
-    const resp = await Firebase.loginUser(credentials);
-    if (resp) {
-      dispatch(navigate(Screens.DASHBOARD));
-    } else {
-      alert("te equivocaste");
-    }
-    console.log(resp);
+    Firebase.loginUser(credentials);
   }
 
   render() {

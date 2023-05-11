@@ -1,5 +1,6 @@
 import { Product } from "../../types/products";
 import Firebase from "../../utils/firebase";
+import { appState, addObserver } from "../../store";
 
 const formData: Omit<Product, "id"> = {
   name: "",
@@ -10,10 +11,12 @@ export default class Dashboard extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
+    addObserver(this);
   }
 
   connectedCallback() {
     this.render();
+    console.log(appState.user);
   }
 
   submitForm() {
@@ -30,6 +33,10 @@ export default class Dashboard extends HTMLElement {
   }
 
   async render() {
+    const welcome = this.ownerDocument.createElement("h1");
+    welcome.innerText = "Bienvenido " + appState.user;
+    this.shadowRoot?.appendChild(welcome);
+
     const title = this.ownerDocument.createElement("h1");
     title.innerText = "Añade producto";
     this.shadowRoot?.appendChild(title);
