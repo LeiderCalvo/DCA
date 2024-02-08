@@ -24,7 +24,7 @@ Both JavaScript and Node.js run on the V8 JavaScript runtime engine (V8 is the n
 - Library
   - They allow us to reuse code that other developers have written and published. Packages in node
 
-- Library
+- Framework
   - A framework is a scheme or framework that offers a structure basis for developing a project with specific objectives
 
 ##### Check the [Modules,Package,Library,Framework Docs](https://dev.to/hamza/framework-vs-library-vs-package-vs-module-the-debate-3jpp) for more information
