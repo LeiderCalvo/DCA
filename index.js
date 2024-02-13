@@ -1,8 +1,12 @@
-import characters from "./characters.js";
-import { renderCharacter } from "./Character.js";
+import { renderCharacter } from './character.js';
+import data from './data.js';
 
-const container = document.getElementById("app");
+const container = document.querySelector('.app');
 
-characters.forEach((character) =>
-  container.appendChild(renderCharacter(character))
-);
+data.forEach((element) => {
+	//Primer paso crear el personaje con el objeto de data
+	const newCharacter = renderCharacter(element);
+
+	//Segundo paso, agregar el personaje al contenedor global app
+	container.appendChild(newCharacter);
+});
