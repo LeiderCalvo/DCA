@@ -1,0 +1,16 @@
+{
+	"name": "class05",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"type": "module",
+	"scripts": {
+		"start": "serve"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"serve": "^14.2.3"
+	}
+}
