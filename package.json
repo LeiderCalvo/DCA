@@ -1,0 +1,20 @@
+{
+	"name": "class11",
+	"version": "1.0.0",
+	"description": "",
+	"main": "webpack.config.js",
+	"scripts": {
+		"start": "serve",
+		"build": "webpack --watch --mode=production"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"serve": "^14.2.3",
+		"ts-loader": "^9.5.1",
+		"typescript": "^5.6.2",
+		"webpack": "^5.95.0",
+		"webpack-cli": "^5.1.4"
+	}
+}
